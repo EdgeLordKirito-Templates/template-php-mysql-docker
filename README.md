@@ -1,4 +1,4 @@
-template-php-mysql-docker
+# template-php-mysql-docker
 
 A lightweight, ready-to-run PHP + MySQL Docker development template.
 This repository provides a fully configured environment for learning PHP and SQL,
@@ -6,7 +6,7 @@ with Docker containers for Apache/PHP and MySQL.
 
 ---
 
-Why this exists
+### Why this exists
 
 This template was created to simplify local PHP + MySQL development:
 
@@ -19,27 +19,27 @@ It is designed for quick experimentation, learning, and sharing.
 
 ---
 
-Folder structure
+### Folder structure
 
-.
-├── apache/         # Dockerfile for custom Apache/PHP image
-├── mysql/          # Dockerfile for custom MySQL image (currently base image)
-├── web/            # Your PHP files live here (index.php, etc.)
-├── docker-compose.yml
-└── LICENSE
+.  
+├── apache/  
+├── mysql/  
+├── web/  
+├── docker-compose.yml  
+└── LICENSE  
 
 - web/ is mounted into the Apache container (/var/www/html) — place all your PHP scripts here.
 - apache/ and mysql/ folders allow future customization of Docker images without touching the compose file.
 
 ---
 
-How to add PHP files
+### How to add PHP files
 
 1. Place your .php files inside the web/ folder.
 2. When the container is running (docker compose up -d --build),
    access your PHP scripts in the browser:
 
-   http://localhost:8080/<yourfile>.php
+   http://localhost:8080/{filename}.php
 
 - If port 8080 conflicts with another program, change the host port
   in docker-compose.yml (left side of 8080:80 mapping).
@@ -47,7 +47,7 @@ How to add PHP files
 
 ---
 
-Docker Compose documentation
+### Docker Compose documentation
 
 The docker-compose.yml file is self-documented:
 
@@ -58,7 +58,7 @@ The docker-compose.yml file is self-documented:
 
 ---
 
-Connecting with a database client (e.g., DataGrip)
+### Connecting with a database client (e.g., DataGrip)
 
 To connect to MySQL externally:
 
