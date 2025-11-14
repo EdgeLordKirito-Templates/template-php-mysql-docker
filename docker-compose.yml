@@ -21,10 +21,10 @@ services:
     container_name: mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword # Root password (can be changed)
-      MYSQL_DATABASE: schooldb # Default database name (can be changed)
-      MYSQL_USER: student # Database user (can be changed)
-      MYSQL_PASSWORD: studentpass # User password (can be changed)
+      MYSQL_ROOT_PASSWORD: root # Root password (can be changed)
+      MYSQL_DATABASE: app_db # Default database name (can be changed)
+      MYSQL_USER: app_user # Database user (can be changed)
+      MYSQL_PASSWORD: app_pass # User password (can be changed)
     ports:
       - "3306:3306" # left = host port (change if in use), right = container port (must stay 3306)
     volumes:
