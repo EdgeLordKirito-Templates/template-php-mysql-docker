@@ -1,0 +1,35 @@
+services:
+  # --------------------------
+  # Apache / PHP container
+  # --------------------------
+  web:
+    build: ./apache # Custom PHP/Apache image
+    container_name: php_apache
+    ports:
+      - "8080:80"  # left = host port (change if in use), right = container port (must stay 80)
+                   
+    volumes:
+      - ./web:/var/www/html
+      - ./apache/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    depends_on:
+      - db  # Ensure MySQL container starts first
+
+  # --------------------------
+  # MySQL container
+  # --------------------------
+  db:
+    build: ./mysql  # Custom MySQL image (currently base image)
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Root password (can be changed)
+      MYSQL_DATABASE: app_db # Default database name (can be changed)
+      MYSQL_USER: app_user # Database user (can be changed)
+      MYSQL_PASSWORD: app_pass # User password (can be changed)
+    ports:
+      - "3306:3306" # left = host port (change if in use), right = container port (must stay 3306)
+    volumes:
+      - db_data:/var/lib/mysql # Persistent storage for database
+
+volumes:
+  db_data: # Docker-managed volume for MySQL data
