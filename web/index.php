@@ -1,8 +1,8 @@
 <?php
 $servername = "db";
-$username = "student";
-$password = "studentpass";
-$dbname = "schooldb";
+$username = "app_user";
+$password = "app_pass";
+$dbname = "app_db";
 
 header('Content-Type: text/html; charset=utf-8');
 echo "<h2>PHP + MySQL Health Check</h2>";
